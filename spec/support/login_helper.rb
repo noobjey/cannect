@@ -37,7 +37,11 @@ module LoginHelper
     visit login_path
   end
 
-  def login_button
+  def login_button()
     "Login with Github"
+  end
+
+  def logout_button()
+    "Logout"
   end
 end

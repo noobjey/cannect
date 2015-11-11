@@ -4,9 +4,6 @@ require 'support/login_helper'
 RSpec.feature "Dashboard:", type: :feature do
   include LoginHelper
 
-  let(:login_button) { "Login with Github" }
-  let(:logout_button) { "Logout" }
-
   before do
     stub_omniauth_github()
   end
@@ -18,7 +15,6 @@ RSpec.feature "Dashboard:", type: :feature do
     end
 
     it "can logout" do
-      expect(current_path).to eq(dashboard_path)
       expect(page).to have_link(logout_button)
 
       click_on logout_button

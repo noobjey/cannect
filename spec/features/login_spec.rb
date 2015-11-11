@@ -20,7 +20,7 @@ RSpec.feature "Logins:", type: :feature do
         click_on login_button
 
         expect(current_path).to eq dashboard_path
-        expect(page).to have_link "Logout"
+        expect(page).to have_link logout_button
       end
     end
   end
