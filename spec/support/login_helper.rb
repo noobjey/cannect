@@ -1,5 +1,8 @@
 module LoginHelper
 
+  include Capybara::DSL
+  Capybara.app = Cannect::Application
+
   def stub_omniauth_github
     OmniAuth.config.test_mode          = true
     OmniAuth.config.mock_auth[:github] = omniauth_github_return
@@ -30,4 +33,11 @@ module LoginHelper
                            })
   end
 
+  def login_user()
+    visit login_path
+  end
+
+  def login_button
+    "Login with Github"
+  end
 end
