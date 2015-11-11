@@ -15,5 +15,8 @@
 # Ignore application configuration
 /config/application.yml
 
+# Ignore coverage
+/coverage
+
 # Ignore my temp files
 /mytmp
