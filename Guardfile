@@ -69,6 +69,8 @@ guard :rspec, cmd: "bundle exec rspec" do
   end
 end
 
+
+# https://github.com/guard/guard/wiki/Guardfile-examples
 group :backend do
 
   guard :rspec,cmd: "bundle exec rspec", :all_after_pass => false, :all_on_start => false do
