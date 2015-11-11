@@ -8,9 +8,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'figaro'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'byebug'
@@ -18,7 +17,7 @@ group :development, :test do
 end
 
 
-group :development, :test do
+group :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'simplecov'
