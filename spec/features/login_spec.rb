@@ -16,11 +16,13 @@ RSpec.feature "Logins:", type: :feature do
       end
 
       it "can login" do
-        stub_omniauth_github()
-        click_on login_button
+        VCR.use_cassette("dashboard") do
+          stub_omniauth_github()
+          click_on login_button
 
-        expect(current_path).to eq dashboard_path
-        expect(page).to have_link logout_button
+          expect(current_path).to eq dashboard_path
+          expect(page).to have_link logout_button
+        end
       end
     end
   end

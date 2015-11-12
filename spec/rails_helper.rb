@@ -23,6 +23,9 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
+
   # Database cleaner configs
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

@@ -33,6 +33,12 @@ module LoginHelper
                            })
   end
 
+  def profile_info
+    {
+      avatar_url: 'https://avatars.githubusercontent.com/u/8325508?v=3'
+    }
+  end
+
   def login_user()
     visit login_path
   end
@@ -43,5 +49,9 @@ module LoginHelper
 
   def logout_button()
     "Logout"
+  end
+
+  def create_github_user()
+    User.find_or_create_from_oauth(omniauth_github_return)
   end
 end
