@@ -21,32 +21,249 @@
 
 
 
-<main>
+<main class="white">
   <div class="row">
 
     <div class="col s4 white">
-      <div class="container" id="profile">
+      <div id="profile">
+
+
         <div class="card">
           <div class="card-image">
             <%= image_tag current_user.profile_picture, class: "responsive-img" %>
           </div>
           <div class="card-content black-text">
-            <div class="collection">
+            <div class="collection with-header">
+              <div class="collection-item collection-header">
+                <div class="center-align"><h5><%= current_user.provider.capitalize %></h5></div>
+              </div>
               <div class="collection-item">
-                <span class="collection-header center-align"><h5><%= current_user.provider.capitalize %></h5></span>
-                <div class="divider"></div>
-                <p>
-                  Following: <span class="badge"><%= current_user.following %></span>
-                </p>
+                Following: <span class="badge"><%= current_user.following %></span>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="card">
+          <div class="card-content black-text">
+            <div class="collection with-header">
+              <div class="collection-item collection-header">
+                <div class="center-align"><h5>Owned Groups</h5></div>
+              </div>
+              <div class="collection-item">
+                <div>
+                  Turing Staff<a class="waves-effect waves-light btn-flat">Edit</a>
+                </div>
+              </div>
+              <div class="collection-item">
+                <div>
+                  1505<a class="waves-effect waves-light btn-flat">Edit</a>
+                </div>
+              </div>
+              <div class="collection-item">
+                <div>
+                  1507<a class="waves-effect waves-light btn-flat">Edit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="col s8">
-      alot lakdjsf adsfo ads;lkfj a;lsdkfjakl;sdj l;kadjsf l;kadjsfkl;j asdkl;fjals;kdj fl;aksdfj
+
+    <div class="col s8 white">
+      <!--<div id="all-groups">-->
+      <!--<ul class="collapsible popout collection" data-collapsible="accordion">-->
+      <!--<li class="collection-item avatar">-->
+      <!--<div class="collapsible-header">-->
+      <!--<div class="row">-->
+      <!--<div class="col s1"><%#= image_tag current_user.profile_picture, class: "responsive-img circle" %></div>-->
+      <!--<div class="col s2"><%#= current_user.username %></div>-->
+      <!--<div class="col s2">Turing Teachers</div>-->
+      <!--<div class="col s4">All the roadies needed</div>-->
+      <!--<div class="col s1">11</div>-->
+      <!--<div class="col s2"><a class="waves-effect waves-light btn">Follow All</a></div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--<div class="collapsible-header">Third</div>-->
+      <!--<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</div>-->
+
+      <form class="forms forms-inline input-field ">
+        <input type="text" class="input-big width-50">
+        <label for="query">Filter</label>
+      </form>
+
+      <!--<ul class="collection with-header">-->
+        <!--<li class="collection-header">-->
+          <!--<div class="row">-->
+            <!--<div class="col s4">-->
+              <!--<h6>Owner</h6>-->
+            <!--</div>-->
+            <!--<div class="col s3">-->
+              <!--<h6>Description</h6>-->
+            <!--</div>-->
+            <!--<div class="col s1">-->
+              <!--<h6>Users</h6>-->
+            <!--</div>-->
+            <!--<div class="col s2 offset-s2">-->
+              <!--<h6>Action</h6>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</li>-->
+        <!--<li class="collection-item avatar">-->
+          <!--<div class="row valign-container">-->
+            <!--<div>-->
+              <!--<div class="col s2 valign">-->
+                <!--<%#= image_tag current_user.profile_picture, class: "responsive-img circle" %>-->
+                <!--<span class="title">Noobjey</span>-->
+              <!--</div>-->
+              <!--<div class="col s2 valign">-->
+                <!--1507-->
+              <!--</div>-->
+              <!--<div class="col s3 valign">-->
+                <!--The people that make wierd noises.-->
+              <!--</div>-->
+              <!--<div class="col s1 valign">-->
+                <!--21-->
+              <!--</div>-->
+              <!--<div class="col s2 valign">-->
+                <!--<a class="waves-effect waves-light btn">Follow All</a>-->
+              <!--</div>-->
+              <!--<div class="col s2 valign">-->
+                <!--<a class="waves-effect waves-light btn">UnFollow All</a>-->
+              <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+        <!--<li class="collection-item avatar">-->
+          <!--<div class="row valign-container">-->
+            <!--<div class="col s2 valign">-->
+              <!--<%#= image_tag current_user.profile_picture, class: "responsive-img circle" %>-->
+              <!--<span class="title">Noobjey</span>-->
+            <!--</div>-->
+            <!--<div class="col s2 valign">-->
+              <!--1505-->
+            <!--</div>-->
+            <!--<div class="col s3 valign">-->
+              <!--Almost gone.-->
+            <!--</div>-->
+            <!--<div class="col s1 valign">-->
+              <!--16-->
+            <!--</div>-->
+            <!--<div class="col s2 valign">-->
+              <!--<a class="waves-effect waves-light btn">Follow All</a>-->
+            <!--</div>-->
+            <!--<div class="col s2 valign">-->
+              <!--<a class="waves-effect waves-light btn">UnFollow All</a>-->
+            <!--</div>-->
+        <!--</li>-->
+      <!--</ul>-->
+
+
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="row collapsible-header">
+            <div class="col s2 valign">
+              <%= image_tag current_user.profile_picture, class: "responsive-img circle noob-small" %>
+            </div>
+            <div class="col s2 valign">
+              1505
+            </div>
+            <div class="col s3 valign">
+              Almost gone.
+            </div>
+            <div class="col s1 valign">
+              16
+            </div>
+            <div class="col s2 valign">
+              <a class="waves-effect waves-light btn">Follow All</a>
+            </div>
+            <div class="col s2 valign">
+              <a class="waves-effect waves-light btn">UnFollow All</a>
+            </div>
+          </div>
+          <div class="collapsible-body row">
+            <ul class="collection with-header">
+              <li class="collection-header">
+                <div class="row">
+                  <div class="col s4">
+                    <h6>User</h6>
+                  </div>
+                  <div class="col s4">
+                    <h6>Providers</h6>
+                  </div>
+                  <div class="col s2 offset-s2">
+                    <h6>Action</h6>
+                  </div>
+                </div>
+              </li>
+              <li class="collection-item avatar">
+                <div class="row valign-container">
+                  <div>
+                    <div class="col s4 valign">
+                      <%= image_tag current_user.profile_picture, class: "responsive-img circle" %>
+                      <span class="title">Noobjey</span>
+                    </div>
+                  </div>
+                  <div class="col s4 valign">
+                    <form action="#">
+                      <p>
+                        <input type="checkbox" id="test5"/>
+                        <label for="test5">Github</label>
+                      </p>
+                    </form>
+                  </div>
+                  <div class="col s2 valign">
+                    <a class="waves-effect waves-light btn">Follow</a>
+                  </div>
+                  <div class="col s2 valign">
+                    <a class="waves-effect waves-light btn">UnFollow</a>
+                  </div>
+                </div>
+              </li>
+              <li class="collection-item avatar">
+                <div class="row valign-container">
+                  <div>
+                    <div class="col s4 valign">
+                      <%= image_tag current_user.profile_picture, class: "responsive-img circle" %>
+                      <span class="title">Someone Else</span>
+                    </div>
+                  </div>
+                  <div class="col s4 valign">
+                    <form action="#">
+                      <p>
+                        <input type="checkbox" id="test5"/>
+                        <label for="test5">Github</label>
+                      </p>
+                    </form>
+                  </div>
+                  <div class="col s2 valign">
+                    <a class="waves-effect waves-light btn">Follow</a>
+                  </div>
+                  <div class="col s2 valign">
+                    <a class="waves-effect waves-light btn">UnFollow</a>
+                  </div>
+                </div>
+              </li>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Second</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header">Third</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+      </ul>
     </div>
 
   </div>
