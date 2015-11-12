@@ -1,7 +1,7 @@
 <header>
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper orange">
         <ul class="left" id="login-badge">
           <li>
             <div class="chip right-align">
@@ -97,74 +97,91 @@
       <!--</ul>-->
       <!--</div>-->
 
-      <form class="forms forms-inline input-field ">
-        <input type="text" class="input-big width-50">
-        <label for="query">Filter</label>
-      </form>
+      <div class="row">
+
+        <form class="col s12">
+
+          <div class="row">
+
+            <div class="input-field col s10">
+              <input type="text" id="group-filter">
+              <label for="group-filter">Filter</label>
+            </div>
+
+            <div class="input-field col s2">
+              <input type="checkbox" id="group-owned-filter">
+              <label for="group-owned-filter">Owned</label>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
 
       <!--<ul class="collection with-header">-->
-        <!--<li class="collection-header">-->
-          <!--<div class="row">-->
-            <!--<div class="col s4">-->
-              <!--<h6>Owner</h6>-->
-            <!--</div>-->
-            <!--<div class="col s3">-->
-              <!--<h6>Description</h6>-->
-            <!--</div>-->
-            <!--<div class="col s1">-->
-              <!--<h6>Users</h6>-->
-            <!--</div>-->
-            <!--<div class="col s2 offset-s2">-->
-              <!--<h6>Action</h6>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</li>-->
-        <!--<li class="collection-item avatar">-->
-          <!--<div class="row valign-container">-->
-            <!--<div>-->
-              <!--<div class="col s2 valign">-->
-                <!--<%#= image_tag current_user.profile_picture, class: "responsive-img circle" %>-->
-                <!--<span class="title">Noobjey</span>-->
-              <!--</div>-->
-              <!--<div class="col s2 valign">-->
-                <!--1507-->
-              <!--</div>-->
-              <!--<div class="col s3 valign">-->
-                <!--The people that make wierd noises.-->
-              <!--</div>-->
-              <!--<div class="col s1 valign">-->
-                <!--21-->
-              <!--</div>-->
-              <!--<div class="col s2 valign">-->
-                <!--<a class="waves-effect waves-light btn">Follow All</a>-->
-              <!--</div>-->
-              <!--<div class="col s2 valign">-->
-                <!--<a class="waves-effect waves-light btn">UnFollow All</a>-->
-              <!--</div>-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li class="collection-item avatar">-->
-          <!--<div class="row valign-container">-->
-            <!--<div class="col s2 valign">-->
-              <!--<%#= image_tag current_user.profile_picture, class: "responsive-img circle" %>-->
-              <!--<span class="title">Noobjey</span>-->
-            <!--</div>-->
-            <!--<div class="col s2 valign">-->
-              <!--1505-->
-            <!--</div>-->
-            <!--<div class="col s3 valign">-->
-              <!--Almost gone.-->
-            <!--</div>-->
-            <!--<div class="col s1 valign">-->
-              <!--16-->
-            <!--</div>-->
-            <!--<div class="col s2 valign">-->
-              <!--<a class="waves-effect waves-light btn">Follow All</a>-->
-            <!--</div>-->
-            <!--<div class="col s2 valign">-->
-              <!--<a class="waves-effect waves-light btn">UnFollow All</a>-->
-            <!--</div>-->
-        <!--</li>-->
+      <!--<li class="collection-header">-->
+      <!--<div class="row">-->
+      <!--<div class="col s4">-->
+      <!--<h6>Owner</h6>-->
+      <!--</div>-->
+      <!--<div class="col s3">-->
+      <!--<h6>Description</h6>-->
+      <!--</div>-->
+      <!--<div class="col s1">-->
+      <!--<h6>Users</h6>-->
+      <!--</div>-->
+      <!--<div class="col s2 offset-s2">-->
+      <!--<h6>Action</h6>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</li>-->
+      <!--<li class="collection-item avatar">-->
+      <!--<div class="row valign-container">-->
+      <!--<div>-->
+      <!--<div class="col s2 valign">-->
+      <!--<%#= image_tag current_user.profile_picture, class: "responsive-img circle" %>-->
+      <!--<span class="title">Noobjey</span>-->
+      <!--</div>-->
+      <!--<div class="col s2 valign">-->
+      <!--1507-->
+      <!--</div>-->
+      <!--<div class="col s3 valign">-->
+      <!--The people that make wierd noises.-->
+      <!--</div>-->
+      <!--<div class="col s1 valign">-->
+      <!--21-->
+      <!--</div>-->
+      <!--<div class="col s2 valign">-->
+      <!--<a class="waves-effect waves-light btn">Follow All</a>-->
+      <!--</div>-->
+      <!--<div class="col s2 valign">-->
+      <!--<a class="waves-effect waves-light btn">UnFollow All</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</li>-->
+      <!--<li class="collection-item avatar">-->
+      <!--<div class="row valign-container">-->
+      <!--<div class="col s2 valign">-->
+      <!--<%#= image_tag current_user.profile_picture, class: "responsive-img circle" %>-->
+      <!--<span class="title">Noobjey</span>-->
+      <!--</div>-->
+      <!--<div class="col s2 valign">-->
+      <!--1505-->
+      <!--</div>-->
+      <!--<div class="col s3 valign">-->
+      <!--Almost gone.-->
+      <!--</div>-->
+      <!--<div class="col s1 valign">-->
+      <!--16-->
+      <!--</div>-->
+      <!--<div class="col s2 valign">-->
+      <!--<a class="waves-effect waves-light btn">Follow All</a>-->
+      <!--</div>-->
+      <!--<div class="col s2 valign">-->
+      <!--<a class="waves-effect waves-light btn">UnFollow All</a>-->
+      <!--</div>-->
+      <!--</li>-->
       <!--</ul>-->
 
 
