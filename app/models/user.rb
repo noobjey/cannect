@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  validates :uid, uniqueness: true
+
+  has_many :group_users
+  has_many :groups, through: :group_users
 
   def self.find_or_create_from_oauth(auth_data)
     user = find_or_create_by(uid: auth_data.uid) do |new_user|
