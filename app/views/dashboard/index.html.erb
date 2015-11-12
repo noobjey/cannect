@@ -2,15 +2,7 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper orange">
-        <ul class="left" id="login-badge">
-          <li>
-            <div class="chip right-align">
-              <%= image_tag "Octocat.jpg" %>
-              <%= current_user.username %>
-            </div>
-          </li>
-        </ul>
-        <%= link_to "Cannect", root_path, class: "brand-logo center" %>
+        <%= link_to "Cannect", root_path, class: "brand-logo" %>
         <ul class="right">
           <li><%= link_to "Logout", logout_path, method: :delete %></li>
         </ul>
@@ -34,8 +26,11 @@
           </div>
           <div class="card-content black-text">
             <div class="collection with-header">
-              <div class="collection-item collection-header">
-                <div class="center-align"><h5><%= current_user.provider.capitalize %></h5></div>
+              <div class="collection-item collection-header valign-wrapper">
+                <div class="valign">
+                  <%= image_tag "Octocat.jpg", class: "responsive-img circle noob-small" %>
+                  <h5 class="right"><%= current_user.username %></h5>
+                </div>
               </div>
               <div class="collection-item">
                 Following: <span class="badge"><%= current_user.following %></span>
