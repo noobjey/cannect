@@ -31,16 +31,16 @@ RSpec.feature "Dashboard:", type: :feature do
       expect(current_path).to eq(root_path)
     end
 
-    it "sees github username in nav" do
-      within "header" do
-        expect(page).to have_content(user.username)
-        expect(page).to have_css("img[src*='Octocat.jpg']")
+    it "sees github profile picture in profile" do
+      within "#profile" do
+        expect(first("img")[:src]).to eq(profile_info[:avatar_url])
       end
     end
 
-    it "sees github profile picture in profile" do
+    it "sees github username in profile" do
       within "#profile" do
-        expect(find("img")[:src]).to eq(profile_info[:avatar_url])
+        expect(page).to have_content(user.username)
+        expect(page).to have_css("img[src*='Octocat.jpg']")
       end
     end
 
