@@ -43,5 +43,11 @@ RSpec.feature "Dashboard:", type: :feature do
         expect(find("img")[:src]).to eq(profile_info[:avatar_url])
       end
     end
+
+    it "sees number of github followers" do
+      within "#profile" do
+        expect(page).to have_content("Following: #{profile_info[:following]}")
+      end
+    end
   end
 end

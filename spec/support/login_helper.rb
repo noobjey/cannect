@@ -35,7 +35,8 @@ module LoginHelper
 
   def profile_info
     {
-      avatar_url: 'https://avatars.githubusercontent.com/u/8325508?v=3'
+      avatar_url: 'https://avatars.githubusercontent.com/u/8325508?v=3',
+      following: 10
     }
   end
 

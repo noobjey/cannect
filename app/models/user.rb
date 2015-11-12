@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     github_service.profile.avatar_url
   end
 
+  def following
+    github_service.profile.following
+  end
+
 
   private
 

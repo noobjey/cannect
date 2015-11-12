@@ -30,7 +30,17 @@
           <div class="card-image">
             <%= image_tag current_user.profile_picture, class: "responsive-img" %>
           </div>
-
+          <div class="card-content black-text">
+            <div class="collection">
+              <div class="collection-item">
+                <span class="collection-header center-align"><h5><%= current_user.provider.capitalize %></h5></span>
+                <div class="divider"></div>
+                <p>
+                  Following: <span class="badge"><%= current_user.following %></span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
