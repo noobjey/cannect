@@ -1,1 +1,20 @@
-<%= link_to "Logout", logout_path, method: :delete %>
+<header>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <ul class="left" id="login-badge">
+          <li>
+            <div class="chip right-align">
+              <%= image_tag "Octocat.jpg"%>
+              <%= current_user.username %>
+            </div>
+          </li>
+        </ul>
+        <%= link_to "Cannect", root_path, class: "brand-logo center" %>
+        <ul class="right">
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

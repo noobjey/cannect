@@ -4,6 +4,13 @@ require 'support/login_helper'
 RSpec.feature "Dashboard:", type: :feature do
   include LoginHelper
 
+  let(:user) { User.create(
+    provider: omniauth_github_return.provider,
+    uid:      omniauth_github_return.uid,
+    username: omniauth_github_return.extra.raw_info.login,
+    token:    omniauth_github_return.credentials.token
+  ) }
+
   before do
     stub_omniauth_github()
   end
@@ -20,6 +27,13 @@ RSpec.feature "Dashboard:", type: :feature do
       click_on logout_button
 
       expect(current_path).to eq(root_path)
+    end
+
+    it "sees github username" do
+      within "nav" do
+        expect(page).to have_content(user.username)
+        expect(page).to have_css("img[src*='Octocat.jpg']")
+      end
     end
   end
 end
