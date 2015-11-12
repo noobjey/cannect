@@ -7,6 +7,13 @@ require 'rspec/rails'
 require 'simplecov'
 SimpleCov.start 'rails'
 
+require 'vcr'
+require 'webmock'
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/cassettes"
+  config.hook_into :webmock
+end
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
@@ -15,6 +22,9 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.infer_spec_type_from_file_location!
+
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
 
   # Database cleaner configs
   config.before(:suite) do

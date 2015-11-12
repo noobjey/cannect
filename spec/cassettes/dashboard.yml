@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/user
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.1.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - token d088f5075d8e264517cee9665f0f3659a92c3744
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 12 Nov 2015 03:07:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4997'
+      X-Ratelimit-Reset:
+      - '1447299521'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Last-Modified:
+      - Wed, 11 Nov 2015 22:27:19 GMT
+      Etag:
+      - W/"0aa3fd43e7dd191d51ad9d889da56f19"
+      X-Oauth-Scopes:
+      - ''
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Oauth-Client-Id:
+      - 58662d0460e83bdc2ea0
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - bd82876e9bf04990f289ba22f246ee9b
+      X-Github-Request-Id:
+      - 62F57525:7FC0:1B8E76FA:5644025E
+    body:
+      encoding: ASCII-8BIT
+      string: '{"login":"noobjey","id":8325508,"avatar_url":"https://avatars.githubusercontent.com/u/8325508?v=3","gravatar_id":"","url":"https://api.github.com/users/noobjey","html_url":"https://github.com/noobjey","followers_url":"https://api.github.com/users/noobjey/followers","following_url":"https://api.github.com/users/noobjey/following{/other_user}","gists_url":"https://api.github.com/users/noobjey/gists{/gist_id}","starred_url":"https://api.github.com/users/noobjey/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/noobjey/subscriptions","organizations_url":"https://api.github.com/users/noobjey/orgs","repos_url":"https://api.github.com/users/noobjey/repos","events_url":"https://api.github.com/users/noobjey/events{/privacy}","received_events_url":"https://api.github.com/users/noobjey/received_events","type":"User","site_admin":false,"name":"Jason
+        Wright","company":"Turing.io","blog":null,"location":"Denver, CO","email":"noobjey@gmail.com","hireable":null,"bio":null,"public_repos":47,"public_gists":5,"followers":6,"following":10,"created_at":"2014-08-01T02:05:38Z","updated_at":"2015-11-11T22:27:19Z"}'
+    http_version: 
+  recorded_at: Thu, 12 Nov 2015 03:07:10 GMT
+recorded_with: VCR 2.9.3

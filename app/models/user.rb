@@ -11,5 +11,19 @@ class User < ActiveRecord::Base
     user
   end
 
+  def profile_picture
+    github_service.profile.avatar_url
+  end
+
+  def following
+    github_service.profile.following
+  end
+
+
+  private
+
+  def github_service
+    @github_service ||= GithubService.new(self)
+  end
 
 end
