@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-image">
+    <%= image_tag user.profile_picture, class: "responsive-img" %>
+  </div>
+  <div class="card-content black-text">
+    <div class="collection with-header">
+      <div class="collection-item collection-header valign-wrapper">
+        <div class="valign">
+          <%= image_tag "Octocat.jpg", class: "responsive-img circle noob-small" %>
+          <h5 class="right"><%= user.username %></h5>
+        </div>
+      </div>
+      <div class="collection-item">
+        Following: <span class="badge"><%= user.following %></span>
+      </div>
+    </div>
+  </div>
+</div>
