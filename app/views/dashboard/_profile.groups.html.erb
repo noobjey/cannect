@@ -7,11 +7,12 @@
           <h5>Owned Groups</h5>
         </div>
       </div>
-
       <%= render partial: "profile.groups.list", collection: groups, as: "group" %>
-
+      <div class="collection-item">
+        <div class="center-align">
+          <h5><%= link_to "Create Group", new_group_path %></h5>
+        </div>
+      </div>
     </div>
   </div>
-
-
 </div>
