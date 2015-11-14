@@ -9,9 +9,8 @@
 
     <div class="col s8 white">
       <% if @groups %>
-
+        <%= render partial: "dashboard/group.header" %>
         <%= render partial: "dashboard/group", collection: @groups %>
-
       <% end %>
     </div>
 
