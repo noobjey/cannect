@@ -57,7 +57,7 @@
             <%= render partial: "dashboard/group", locals: { group: @group } %>
           </div>
           <div class="collapsible-body">
-            <%= render "dashboard/users" %>
+            <%= render partial: "dashboard/users", locals: { users: @group.users } %>
           </div>
         </li>
       </ul>
