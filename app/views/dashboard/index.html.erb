@@ -1,7 +1,5 @@
 <%= render "dashboard/header" %>
 
-
-
 <main class="white">
 
   <div class="row">
@@ -10,57 +8,9 @@
     </div>
 
     <div class="col s8 white">
-
-      <!--<table>-->
-      <!--<thead>-->
-      <!--<tr>-->
-      <!--<th data-field="owner">Owner</th>-->
-      <!--<th data-field="name">Name</th>-->
-      <!--<th data-field="description">Description</th>-->
-      <!--<th data-field="members">Members</th>-->
-      <!--<th data-field="action">Action</th>-->
-      <!--</tr>-->
-      <!--</thead>-->
-      <!--</table>-->
-
-      <ul class="collapsible" data-collapsible="accordion">
-        <li>
-          <div class="collapsible-header">
-            <div class="row center-align">
-
-              <div class="col s4">
-                Owner
-              </div>
-              <div class="col s2">
-                Name
-              </div>
-              <div class="col s3">
-                Description
-              </div>
-              <div class="col s1">
-                Members
-              </div>
-              <div class="col s2">
-              </div>
-              <div class="col s2">
-              </div>
-
-            </div>
-          </div>
-        </li>
-      </ul>
-
-      <% if @group %>
-      <ul class="collapsible" data-collapsible="accordion">
-        <li>
-          <div class="collapsible-header">
-            <%= render partial: "dashboard/group", locals: { group: @group } %>
-          </div>
-          <div class="collapsible-body">
-            <%= render "dashboard/users" %>
-          </div>
-        </li>
-      </ul>
+      <% if @groups %>
+        <%= render partial: "dashboard/group.header" %>
+        <%= render partial: "dashboard/group", collection: @groups %>
       <% end %>
     </div>
 

@@ -1,69 +1,29 @@
 <ul class="collection with-header">
 
+  <table>
+    <thead>
+    <tr>
+      <th data-field="username">Username</th>
+      <th data-field="provider">Provider</th>
+      <th>Action</th>
+    </tr>
+    </thead>
 
+    <tbody>
 
-  <!--<li class="collection-header">-->
-    <!--<div class="row">-->
-      <!--<div class="col s4">-->
-        <!--<h6>User</h6>-->
-      <!--</div>-->
-      <!--<div class="col s4">-->
-        <!--<h6>Providers</h6>-->
-      <!--</div>-->
-      <!--<div class="col s2 offset-s2">-->
-        <!--<h6>Action</h6>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</li>-->
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.provider %></td>
+        <td>
+          <a class="btn-floating btn waves-effect waves-light"><i class="medium material-icons">add_circle</i></a>
+          <a class="btn-floating btn waves-effect waves-light red"><i class="large material-icons">remove_circle</i></a>
+        </td>
+      </tr>
+    <% end %>
 
-  <!--<li class="collection-item avatar">-->
-    <!--<div class="row valign-container">-->
-      <!--<div>-->
-        <!--<div class="col s4 valign">-->
-          <!--<%#= image_tag current_user.profile_picture, class: "responsive-img circle" %>-->
-          <!--<span class="title">Noobjey</span>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="col s4 valign">-->
-        <!--<form action="#">-->
-          <!--<p>-->
-            <!--<input type="checkbox" id="test5"/>-->
-            <!--<label for="test5">Github</label>-->
-          <!--</p>-->
-        <!--</form>-->
-      <!--</div>-->
-      <!--<div class="col s2 valign">-->
-        <!--<a class="waves-effect waves-light btn">Follow</a>-->
-      <!--</div>-->
-      <!--<div class="col s2 valign">-->
-        <!--<a class="waves-effect waves-light btn">UnFollow</a>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</li>-->
+    </tbody>
 
-  <!--<li class="collection-item avatar">-->
-    <!--<div class="row valign-container">-->
-      <!--<div>-->
-        <!--<div class="col s4 valign">-->
-          <!--<%#= image_tag current_user.profile_picture, class: "responsive-img circle" %>-->
-          <!--<span class="title">Someone Else</span>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="col s4 valign">-->
-        <!--<form action="#">-->
-          <!--<p>-->
-            <!--<input type="checkbox" id="test5"/>-->
-            <!--<label for="test5">Github</label>-->
-          <!--</p>-->
-        <!--</form>-->
-      <!--</div>-->
-      <!--<div class="col s2 valign">-->
-        <!--<a class="waves-effect waves-light btn">Follow</a>-->
-      <!--</div>-->
-      <!--<div class="col s2 valign">-->
-        <!--<a class="waves-effect waves-light btn">UnFollow</a>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</li>-->
+  </table>
 
 </ul>
