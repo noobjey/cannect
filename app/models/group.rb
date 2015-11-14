@@ -7,4 +7,5 @@ class Group < ActiveRecord::Base
   def owner
     User.find_by(id: self.owner_id)
   end
+
 end
