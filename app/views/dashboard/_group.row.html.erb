@@ -1,0 +1,21 @@
+<div class="row center-align">
+  <div class="col s3">
+    <%= image_tag group.owner.profile_picture, class: "responsive-img circle noob-small" %>
+    <%= group.owner.username %>
+  </div>
+  <div class="col s2">
+    <%= group.name %>
+  </div>
+  <div class="col s4">
+    <%= group.description %>
+  </div>
+  <div class="col s1">
+    <%= group.users.count %>
+  </div>
+  <div class="col s2">
+      <a class="btn-floating btn waves-effect waves-light"><i class="medium material-icons">add_circle</i></a>
+      <a class="btn-floating btn waves-effect waves-light red"><i class="large material-icons">remove_circle</i></a>
+  </div>
+
+</div>
+

@@ -1,7 +1,5 @@
 <%= render "dashboard/header" %>
 
-
-
 <main class="white">
 
   <div class="row">
@@ -10,18 +8,6 @@
     </div>
 
     <div class="col s8 white">
-
-      <!--<table>-->
-      <!--<thead>-->
-      <!--<tr>-->
-      <!--<th data-field="owner">Owner</th>-->
-      <!--<th data-field="name">Name</th>-->
-      <!--<th data-field="description">Description</th>-->
-      <!--<th data-field="members">Members</th>-->
-      <!--<th data-field="action">Action</th>-->
-      <!--</tr>-->
-      <!--</thead>-->
-      <!--</table>-->
 
       <ul class="collapsible" data-collapsible="accordion">
         <li>
@@ -50,9 +36,9 @@
         </li>
       </ul>
 
-      <% if @group %>
+      <% if @groups %>
 
-        <%= render partial: "dashboard/groups", locals: { group: @group} %>
+        <%= render partial: "dashboard/group", collection: @groups %>
 
       <% end %>
     </div>
