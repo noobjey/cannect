@@ -1,0 +1,62 @@
+<div id="profile">
+
+  <div class="card">
+    <div class="card-image">
+      <%= image_tag current_user.profile_picture, class: "responsive-img" %>
+    </div>
+    <div class="card-content black-text">
+      <div class="collection with-header">
+        <div class="collection-item collection-header valign-wrapper">
+          <div class="valign">
+            <%= image_tag "Octocat.jpg", class: "responsive-img circle noob-small" %>
+            <h5 class="right"><%= current_user.username %></h5>
+          </div>
+        </div>
+        <div class="collection-item">
+          Following: <span class="badge"><%= current_user.following %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card ">
+    <div class="card-content black-text">
+      <div class="collection with-header">
+        <div class="collection-item collection-header">
+          <div class="center-align"><h5>Owned Groups</h5></div>
+        </div>
+        <div class="collection-item">
+          <div class="row valign-wrapper override-row-bottom-margin">
+            <div class="col s8 valign">
+              Turing Staff
+            </div>
+            <div class="col s4 valign">
+              <a class="waves-effect waves-light btn-flat">Edit</a>
+            </div>
+          </div>
+        </div>
+        <div class="collection-item">
+          <div class="row valign-wrapper override-row-bottom-margin">
+            <div class="col s8 valign">
+              1505
+            </div>
+            <div class="col s4 valign">
+              <a class="waves-effect waves-light btn-flat">Edit</a>
+            </div>
+          </div>
+        </div>
+        <div class="collection-item">
+          <div class="row valign-wrapper override-row-bottom-margin">
+            <div class="col s8 valign">
+              1507
+            </div>
+            <div class="col s4 valign">
+              <a class="waves-effect waves-light btn-flat">Edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
