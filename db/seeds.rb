@@ -31,17 +31,17 @@ def group_data
     group1: {
       name: "Turing Staff",
       description: "Only the mediocre need apply.",
-      owner_id: user_data[:user2][:uid]
+      owner_id: User.find_by(uid: user_data[:user2][:uid]).id
     },
     group2: {
       name: "1505",
       description: "Going, going, gone.",
-      owner_id: user_data[:user2][:uid]
+      owner_id: User.find_by(uid: user_data[:user2][:uid]).id
     },
     group3: {
       name: "1507",
       description: "Must be cool with wierd people noises to belong.",
-      owner_id: user_data[:user3][:uid]
+      owner_id: User.find_by(uid: user_data[:user3][:uid]).id
     }
   }
 end
