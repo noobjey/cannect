@@ -13,6 +13,15 @@ class GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    group = Group.find_by(id: params[:id])
+
+    if group && group.owner == current_user
+      group.delete
+      redirect_to dashboard_path
+    end
+
+  end
 
   private
 
