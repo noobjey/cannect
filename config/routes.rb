@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
 
   resources :groups, only: [:new, :create, :edit, :update, :destroy]
+
+  resources :users, only: [:update]
 end
