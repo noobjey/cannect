@@ -1,13 +1,16 @@
 class Groups::FollowsController < ApplicationController
 
   def update
-    members.each { |member| current_user.follow(member) }
+    group_members("follow")
 
     redirect_to dashboard_path
   end
 
   def destroy
-    members.each { |member| current_user.unfollow(member) }
+    group_members("unfollow")
+
+    # what was there
+    # find_group().users.each {|member| current_user.unfollow(member)}
 
     redirect_to dashboard_path
   end
@@ -18,7 +21,9 @@ class Groups::FollowsController < ApplicationController
     Group.find_by(id: params[:group_id])
   end
 
-  def members
-    find_group().users
+  # Need to ask about this, don't like theres hardcode string dependency on method name
+  # Refactoring in ide will not catch this
+  def group_members(method)
+    find_group().users.each { |member| current_user.send(method.to_sym, member) }
   end
 end
