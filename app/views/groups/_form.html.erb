@@ -23,7 +23,11 @@
 
         <%= f.hidden_field :owner_id, value: owner_id %>
 
-        <%= f.submit "Create Group", class: "btn" %>
+        <% if !group.new_record? %>
+          <%= hidden_field_tag "_method", "put"  %>
+        <% end %>
+
+        <%= f.submit group.new_record? ? "Create Group" : "Update Group", class: "btn" %>
       </div>
     <% end %>
   </div>
