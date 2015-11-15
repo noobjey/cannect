@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:update]
 
-  delete '/follow', to: 'users#unfollow'
+  resources :follows, only: [:update, :destroy], to: 'users#follow'
 end
