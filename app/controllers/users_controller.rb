@@ -6,4 +6,11 @@ class UsersController < ApplicationController
 
     redirect_to dashboard_path
   end
+
+  def unfollow
+    user_to_unfollow = User.find_by(id: params[:user_to_unfollow])
+    current_user.unfollow(user_to_unfollow)
+
+    redirect_to dashboard_path
+  end
 end
