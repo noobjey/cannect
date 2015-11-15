@@ -13,36 +13,48 @@ class GroupsController < ApplicationController
     end
   end
 
-  def destroy
-    group = Group.find_by(id: params[:id])
+  def edit
+    @group = current_group
+    @users = User.order(:username)
+  end
 
-    if group && group.owner == current_user
+  def update
+    group = current_group
+
+    if group
+      group.update_attributes(allowed_params)
+      add_users_to(group)
+
+      redirect_to dashboard_path
+    end
+  end
+
+  def destroy
+    group = current_group
+
+    if group
       group.delete
       redirect_to dashboard_path
     end
-
   end
+
+  def current_group
+    Group.find_by(id: params[:id])
+  end
+
 
   private
 
   def allowed_params
-    params.require(:group).permit(:name, :description, :owner_id)
+    params.require(:group).permit(:name, :description, :owner_id, user_ids: [])
   end
 
   def user_ids_to_add
-    params[:group][:user_ids].reject(&:empty?)
-  end
-
-  def users_to_add
-    user_ids_to_add.map do |id|
-      User.find_by(id: id.to_i)
-    end
+    allowed_params[:user_ids].reject(&:empty?)
   end
 
   def add_users_to(group)
-    users_to_add.each do |user|
-      group.users << user
-    end
+    group.user_ids = user_ids_to_add
   end
 
 end
