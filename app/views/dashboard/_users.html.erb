@@ -20,7 +20,9 @@
             <i class="medium material-icons">add_circle</i>
           <% end %>
 
-          <a class="btn-floating btn waves-effect waves-light red"><i class="large material-icons">remove_circle</i></a>
+          <%= link_to follow_path(user_to_unfollow: user), method: :delete, class: "btn-floating btn waves-effect waves-light red" do %>
+            <i class="medium material-icons">remove_circle</i>
+          <% end %>
         </td>
       </tr>
     <% end %>

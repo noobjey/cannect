@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
     github_service.follow(user)
   end
 
+  def unfollow(user)
+    github_service.unfollow(user)
+  end
+
 
   private
 

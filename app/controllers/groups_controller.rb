@@ -38,12 +38,12 @@ class GroupsController < ApplicationController
     end
   end
 
+
+  private
+
   def current_group
     Group.find_by(id: params[:id])
   end
-
-
-  private
 
   def allowed_params
     params.require(:group).permit(:name, :description, :owner_id, user_ids: [])
