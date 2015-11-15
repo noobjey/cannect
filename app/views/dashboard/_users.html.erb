@@ -16,7 +16,10 @@
         <td><%= user.username %></td>
         <td><%= user.provider %></td>
         <td>
-          <a class="btn-floating btn waves-effect waves-light"><i class="medium material-icons">add_circle</i></a>
+          <%= link_to user_path(user), method: :put, class: "btn-floating btn waves-effect waves-light" do %>
+            <i class="medium material-icons">add_circle</i>
+          <% end %>
+
           <a class="btn-floating btn waves-effect waves-light red"><i class="large material-icons">remove_circle</i></a>
         </td>
       </tr>

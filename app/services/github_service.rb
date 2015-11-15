@@ -9,6 +9,10 @@ class GithubService
     profile_info
   end
 
+  def follow(user)
+    client.follow(user.username)
+  end
+
 
   private
 

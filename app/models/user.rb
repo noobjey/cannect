@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     github_service.profile.following
   end
 
+  def follow(user)
+    github_service.follow(user)
+  end
+
 
   private
 
