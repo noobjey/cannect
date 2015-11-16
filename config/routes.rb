@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
 
   resources :groups, only: [:new, :create, :edit, :update, :destroy] do
-    # http://blog.jamesalmond.com/resourceful-routing-with-rails/
     resource :follows, module: :groups, only: [:update, :destroy]
   end
 
-  resources :users, only: [:update]
+  resources :users, only: [:update] do
+    resource :follows, module: :users, only: [:update, :destroy]
+  end
 
-  resources :follows, only: [:update, :destroy], to: 'users#follow'
 end
