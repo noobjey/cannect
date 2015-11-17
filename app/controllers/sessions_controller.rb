@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       login_user_with_id(auth.user_id)
     elsif user_already_logged_in?
       add_new_authorization_for(current_user, auth_data)
+      add_new_service_for(current_user, auth_data)
     else
       user = create_new_user(auth_data)
       add_new_authorization_for(user, auth_data)
@@ -41,6 +42,10 @@ class SessionsController < ApplicationController
 
   def add_new_authorization_for(user, auth_data)
     Authorization.create_from_user_and_oauth(user, auth_data)
+  end
+
+  def add_new_service_for(user, auth_data)
+    user.add_service_oauth(auth_data)
   end
 
   def create_new_user(auth_data)
