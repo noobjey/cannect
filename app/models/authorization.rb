@@ -5,7 +5,7 @@ class Authorization < ActiveRecord::Base
   validates_uniqueness_of :uid, scope: :provider
 
   def self.find_from_oauth(auth_data)
-    find_by_provider_and_uid(auth_data[:uid], auth_data[:provider])
+    find_by_provider_and_uid(auth_data[:provider], auth_data[:uid])
   end
 
   def self.create_from_user_and_oauth(user, auth_data)
