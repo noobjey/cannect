@@ -5,14 +5,25 @@
   <div class="card-content black-text">
     <div class="collection with-header">
       <div class="collection-item collection-header valign-wrapper">
+
         <div class="valign">
-          <%= image_tag "Octocat.jpg", class: "responsive-img circle noob-small" %>
-          <h5 class="right"><%= user.username %></h5>
+          <h5>Accounts</h5>
+        </div>
+      </div>
+
+      <div class="collection-item">
+        <div class="valign">
+          <h5><%= image_tag "Octocat.jpg", class: "responsive-img circle noob-small" %><%= user.username %></h5>
         </div>
       </div>
       <div class="collection-item">
-        Following: <span class="badge"><%= user.following %></span>
+        <div class="valign">
+          <!-- So display image and username if signed up already, otherwise a connect button -->
+          <%= image_tag "TwitterLogo.png", class: "responsive-img circle noob-small" %>
+          <%= link_to "Add", twitter_path, class: "waves-effect waves-light btn-flat" %>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
