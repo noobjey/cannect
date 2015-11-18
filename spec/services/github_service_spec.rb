@@ -9,7 +9,7 @@ RSpec.feature "GithubServices:", type: :feature do
     @github_service = GithubService.new(@user)
   end
 
-  it "#profile" do
+  xit "#profile" do
     VCR.use_cassette("github user info") do
       expect(@github_service.profile.id.to_s).to eq(omniauth_github_return.uid)
       expect(@github_service.profile.avatar_url).to eq(profile_info[:avatar_url])

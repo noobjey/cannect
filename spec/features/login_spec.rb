@@ -10,15 +10,32 @@ RSpec.feature "Logins:", type: :feature do
     end
 
     context "and is not logged in" do
-      it "sees a login button" do
+      it "sees a github login button" do
         expect(current_path).to eq root_path
-        expect(page).to have_link login_button
+        expect(page).to have_link login_button("github")
       end
 
-      it "can login" do
-        VCR.use_cassette("dashboard") do
+      it "sees a twitter login button" do
+        expect(current_path).to eq root_path
+        expect(page).to have_link login_button("twitter")
+      end
+
+      context "can login" do
+        before do
+          create_services()
+        end
+
+        it "with github" do
           stub_omniauth_github()
-          click_on login_button
+          click_on login_button("github")
+
+          expect(current_path).to eq dashboard_path
+          expect(page).to have_link logout_button
+        end
+
+        it "with twitter" do
+          stub_omniauth_twitter()
+          click_on login_button("twitter")
 
           expect(current_path).to eq dashboard_path
           expect(page).to have_link logout_button

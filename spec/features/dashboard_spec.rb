@@ -15,7 +15,7 @@ RSpec.feature "Dashboard:", type: :feature do
     stub_omniauth_github()
   end
 
-  context "a logged in user" do
+  xcontext "a logged in user" do
     before do
       VCR.use_cassette('dashboard') do
         login_user()

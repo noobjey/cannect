@@ -4,7 +4,7 @@ require 'support/login_helper'
 RSpec.describe User, type: :model do
   include LoginHelper
 
-  describe '#find_or_create_from_oauth' do
+  xdescribe '#find_or_create_from_oauth' do
 
     context 'when uid does not exit' do
       it 'create user' do
