@@ -12,39 +12,12 @@ class User < ActiveRecord::Base
     user
   end
 
+  def inactive_services()
+    Service.all - self.services
+  end
+
   def add_new_service(auth_data)
     self.services << Service.find_by(provider: auth_data[:provider])
-  end
-
-  def profile_picture
-    github_service.profile.avatar_url
-  end
-
-  def following
-    github_service.profile.following
-  end
-
-  def follow(user)
-    github_service.follow(user)
-  end
-
-  def unfollow(user)
-    github_service.unfollow(user)
-  end
-
-  def follow_users(users)
-    users.each { |user| self.follow(user) }
-  end
-
-  def unfollow_users(users)
-    users.each { |user| self.unfollow(user) }
-  end
-
-
-  private
-
-  def github_service
-    @github_service ||= GithubService.new(self)
   end
 
 end

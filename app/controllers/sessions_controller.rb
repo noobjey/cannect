@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
   end
 
   def add_new_service_for(user, auth_data)
-    user.add_service_oauth(auth_data)
+    user.add_new_service(auth_data)
   end
 
   def create_new_user(auth_data)

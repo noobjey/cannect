@@ -14,7 +14,8 @@ class Authorization < ActiveRecord::Base
       provider: auth_data[:provider],
       uid: auth_data[:uid],
       token: auth_data[:credentials][:token],
-      secret: auth_data[:credentials][:secret]
+      secret: auth_data[:credentials][:secret],
+      username: auth_data[:info][:nickname]
     )
   end
 end

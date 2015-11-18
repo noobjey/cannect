@@ -1,20 +1,27 @@
 class FollowsController < ApplicationController
   def create
-    # byebug
-    puts params
+    allowed_params.each do |service, data|
+      ServiceFactory.create_service(current_user, service).follow(user_to_follow(data, service))
+    end
     redirect_to dashboard_path
   end
 
-  def delete
-    puts params
+
+  def destroy
+    allowed_params.each do |service, data|
+      ServiceFactory.create_service(current_user, service).unfollow(user_to_follow(data, service))
+    end
     redirect_to dashboard_path
   end
 
-  def twitter_service
-    @twitter_service ||= TwitterService.new(self.ser)
+
+  private
+
+  def user_to_follow(data, service)
+    Authorization.find_by_provider_and_uid(service, data[:user_to_follow_uid]).username
   end
 
-  def github_service
-    @github_service ||= GithubService.new(self)
+  def allowed_params
+    params.require(:follows).permit(github: :user_to_follow_uid, twitter: :user_to_follow_uid )
   end
 end
