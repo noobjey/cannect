@@ -20,22 +20,29 @@
           <% end %>
         </td>
         <td>
+          <!-- PUT THIS IN PRESENTOR -->
+          <% if current_user == user %>
+            <% disable = "disabled" %>
+          <% else %>
+            <% disable = "" %>
+          <% end %>
+
           <%= render partial: "follows.submit.button",
                      locals:  {
-                       method_to_use: "post",
-                       users: [user],
+                       method_to_use:  "post",
+                       users:          [user],
                        authorizations: user.authorizations,
-                       button_icon: "add_circle",
-                       button_classes: "btn-floating btn waves-effect waves-light"
+                       button_icon:    "add_circle",
+                       button_classes: "btn-floating btn waves-effect waves-light #{disable}"
                      } %>
 
           <%= render partial: "follows.submit.button",
                      locals:  {
-                       method_to_use: "delete",
-                       users: [user],
+                       method_to_use:  "delete",
+                       users:          [user],
                        authorizations: user.authorizations,
-                       button_icon: "remove_circle",
-                       button_classes: "btn-floating btn waves-effect waves-light red"
+                       button_icon:    "remove_circle",
+                       button_classes: "btn-floating btn waves-effect waves-light red #{disable}"
                      } %>
 
         </td>
