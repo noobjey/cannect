@@ -1,18 +1,27 @@
-<%= form_tag follows_path, method: method do %>
+<%= form_tag follows_path, method: method_to_use do %>
+
   <%= fields_for :follows do |follows| %>
 
-    <% authorizations.each do |auth| %>
+    <%= follows.fields_for user.id.to_s do |user_id| %>
 
-      <%= follows.fields_for auth.provider do |provider| %>
+      <% user.authorizations.each do |auth| %>
 
-        <%= provider.hidden_field "user_to_follow_uid", value: auth.uid  %>
+        <%= user_id.fields_for auth.provider do |provider| %>
+          <%= provider.hidden_field "user_to_follow_uid", value: auth.uid %>
+        <% end %>
 
       <% end %>
 
     <% end %>
 
   <% end %>
+
   <%= button_tag type: :submit, class: button_classes do %>
     <i class="medium material-icons"><%= button_icon %></i>
   <% end %>
+
 <% end %>
+
+
+
+
