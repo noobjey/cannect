@@ -1,9 +1,15 @@
-# def run
+def run
+  create_services()
 #   create_users()
 #   create_groups()
 #   add_users_to_groups()
-# end
-#
+end
+
+def create_services()
+  Service.create(provider: 'github')
+  Service.create(provider: 'twitter')
+end
+
 # def create_users()
 #   user_data.each do |k, user_data|
 #     User.create(user_data)
@@ -75,4 +81,4 @@
 #   }
 # end
 #
-# run()
+run()
