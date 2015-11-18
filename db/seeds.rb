@@ -6,8 +6,8 @@ def run
 end
 
 def create_services()
-  Service.create(provider: 'github')
-  Service.create(provider: 'twitter')
+  Service.create(provider: 'github', logo: "Octocat.jpg")
+  Service.create(provider: 'twitter', logo: "TwitterLogo.png")
 end
 
 # def create_users()

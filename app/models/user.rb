@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     Service.all - self.services
   end
 
+  def username_for_service(service)
+    self.authorizations.find_by(provider: service.provider).username
+  end
+
   def add_new_service(auth_data)
     self.services << Service.find_by(provider: auth_data[:provider])
   end

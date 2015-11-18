@@ -10,12 +10,14 @@ class Authorization < ActiveRecord::Base
 
   def self.create_from_user_and_oauth(user, auth_data)
     Authorization.create(
-      user_id: user.id,
+      user_id:  user.id,
       provider: auth_data[:provider],
-      uid: auth_data[:uid],
-      token: auth_data[:credentials][:token],
-      secret: auth_data[:credentials][:secret],
+      uid:      auth_data[:uid],
+      token:    auth_data[:credentials][:token],
+      secret:   auth_data[:credentials][:secret],
       username: auth_data[:info][:nickname]
     )
   end
+
+
 end
