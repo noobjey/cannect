@@ -1,0 +1,13 @@
+<%= form_tag follows_path, method: method do %>
+  <%= fields_for :follows do |ff| %>
+    <% authorizations.each do |auth| %>
+      <%= ff.fields_for auth.provider do |ppp| %>
+        <%= ppp.hidden_field "uid", value: auth.uid %>
+        <%= ppp.hidden_field "user_to_follow", value: user_id %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= button_tag type: :submit, class: button_classes do %>
+    <i class="medium material-icons"><%= button_icon %></i>
+  <% end %>
+<% end %>
