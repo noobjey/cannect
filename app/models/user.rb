@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :services, through: :service_users
 
   def self.create_from_oauth(auth_data)
-    user = User.create(name: auth_data[:info][:name])
+    user = User.create(name: auth_data[:info][:name], image_url: auth_data[:info][:image])
     user.add_new_service(auth_data)
 
     user
