@@ -4,13 +4,13 @@
 
   <div class="row">
     <div class="col s4 white">
-      <%#= render "dashboard/profile" %>
+      <%= render "dashboard/profile" %>
     </div>
 
     <div class="col s8 white">
       <% if @groups %>
-        <%#= render partial: "dashboard/group.header" %>
-        <%#= render partial: "dashboard/group", collection: @groups %>
+        <%= render partial: "dashboard/group.header" %>
+        <%= render partial: "dashboard/group", collection: @groups %>
       <% end %>
     </div>
 

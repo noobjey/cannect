@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-image">
-    <%= image_tag user.profile_picture, class: "responsive-img" %>
+    <%#= image_tag user.profile_picture, class: "responsive-img" %>
   </div>
   <div class="card-content black-text">
     <div class="collection with-header">
@@ -11,18 +11,27 @@
         </div>
       </div>
 
-      <div class="collection-item">
-        <div class="valign">
-          <h5><%= image_tag "Octocat.jpg", class: "responsive-img circle noob-small" %><%= user.username %></h5>
+      <% active_services.each do |service| %>
+        <div class="collection-item">
+          <div class="valign">
+            <%= service.provider %>
+          </div>
         </div>
-      </div>
-      <div class="collection-item">
-        <div class="valign">
-          <!-- So display image and username if signed up already, otherwise a connect button -->
-          <%= image_tag "TwitterLogo.png", class: "responsive-img circle noob-small" %>
-          <%= link_to "Add", twitter_path, class: "waves-effect waves-light btn-flat" %>
+      <% end %>
+
+      <% inactive_services.each do |service| %>
+        <div class="collection-item">
+          <div class="valign row">
+            <div class="col s4 valign">
+          <!--<%#= image_tag "TwitterLogo.png", class: "responsive-img circle noob-small" %>-->
+              <%= service.provider %>
+            </div>
+            <div class="col s6 valign">
+              <%= link_to "Add", eval("#{service.provider}_login_path"), class: "waves-effect waves-light btn-flat" %>
+            </div>
+          </div>
         </div>
-      </div>
+      <% end %>
 
     </div>
   </div>
