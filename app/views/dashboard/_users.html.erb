@@ -13,16 +13,31 @@
 
     <% users.each do |user| %>
       <tr>
-        <td><%= user.username %></td>
-        <td><%= user.provider %></td>
+        <td><%= user.name %></td>
         <td>
-          <%= link_to user_follows_path(user), method: :put, class: "btn-floating btn waves-effect waves-light" do %>
-            <i class="medium material-icons">add_circle</i>
+          <% user.authorizations.each do |auth| %>
+            <%= auth.provider %>
           <% end %>
+        </td>
+        <td>
+          <%= render partial: "group.submit.button",
+                     locals:  {
+                       method_to_use: "post",
+                       users: [user],
+                       authorizations: user.authorizations,
+                       button_icon: "add_circle",
+                       button_classes: "btn-floating btn waves-effect waves-light"
+                     } %>
 
-          <%= link_to user_follows_path(user), method: :delete, class: "btn-floating btn waves-effect waves-light red" do %>
-            <i class="medium material-icons">remove_circle</i>
-          <% end %>
+          <%= render partial: "group.submit.button",
+                     locals:  {
+                       method_to_use: "delete",
+                       users: [user],
+                       authorizations: user.authorizations,
+                       button_icon: "remove_circle",
+                       button_classes: "btn-floating btn waves-effect waves-light red"
+                     } %>
+
         </td>
       </tr>
     <% end %>

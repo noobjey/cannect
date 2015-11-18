@@ -14,7 +14,7 @@
         </div>
 
         <%= f.label :users %>
-        <%= f.collection_check_boxes :user_ids, users, :id, :username do |b| %>
+        <%= f.collection_check_boxes :user_ids, users, :id, :name do |b| %>
           <p>
             <%= b.check_box %>
             <%= b.label %>

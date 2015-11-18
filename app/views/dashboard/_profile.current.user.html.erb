@@ -1,18 +1,40 @@
 <div class="card">
   <div class="card-image">
-    <%= image_tag user.profile_picture, class: "responsive-img" %>
+    <%= image_tag user.image_url, class: "responsive-img" %>
   </div>
   <div class="card-content black-text">
     <div class="collection with-header">
       <div class="collection-item collection-header valign-wrapper">
+
         <div class="valign">
-          <%= image_tag "Octocat.jpg", class: "responsive-img circle noob-small" %>
-          <h5 class="right"><%= user.username %></h5>
+          <h5 class="center-align">Accounts</h5>
         </div>
       </div>
-      <div class="collection-item">
-        Following: <span class="badge"><%= user.following %></span>
-      </div>
+
+      <% active_services.each do |service| %>
+        <div class="collection-item row">
+          <div class="valign col sm4">
+            <%= image_tag service.logo, class: "responsive-img noob-small" %>
+          </div>
+          <div class="valign col sm8">
+            <h5 class="right-align"><%= user.username_for_service(service) %></h5>
+          </div>
+        </div>
+      <% end %>
+
+      <% inactive_services.each do |service| %>
+        <div class="collection-item">
+          <div class="valign row">
+            <div class="col s4 valign">
+              <%= image_tag service.logo, class: "responsive-img circle noob-small" %>
+            </div>
+            <div class="col s8 valign right-align">
+              <%= link_to "Add", eval("#{service.provider}_login_path"), class: "waves-effect waves-light btn-flat" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>

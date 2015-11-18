@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'omniauth-github'
 gem 'octokit', '~> 4.0'
+gem 'omniauth-twitter'
+gem 'twitter'
 
 group :development, :test do
   gem 'byebug'

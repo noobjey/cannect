@@ -1,49 +1,27 @@
 class User < ActiveRecord::Base
-  validates :uid, uniqueness: true
-
+  has_many :authorizations
   has_many :group_users
   has_many :groups, through: :group_users
+  has_many :service_users
+  has_many :services, through: :service_users
 
-  def self.find_or_create_from_oauth(auth_data)
-    user = find_or_create_by(uid: auth_data.uid) do |new_user|
-      new_user.provider = auth_data.provider
-      new_user.uid      = auth_data.uid
-      new_user.username = auth_data.extra.raw_info.login
-      new_user.token    = auth_data.credentials.token
-    end
+  def self.create_from_oauth(auth_data)
+    user = User.create(name: auth_data[:info][:name], image_url: auth_data[:info][:image])
+    user.add_new_service(auth_data)
 
     user
   end
 
-  def profile_picture
-    github_service.profile.avatar_url
+  def inactive_services()
+    Service.all - self.services
   end
 
-  def following
-    github_service.profile.following
+  def username_for_service(service)
+    self.authorizations.find_by(provider: service.provider).username
   end
 
-  def follow(user)
-    github_service.follow(user)
-  end
-
-  def unfollow(user)
-    github_service.unfollow(user)
-  end
-
-  def follow_users(users)
-    users.each { |user| self.follow(user) }
-  end
-
-  def unfollow_users(users)
-    users.each { |user| self.unfollow(user) }
-  end
-
-
-  private
-
-  def github_service
-    @github_service ||= GithubService.new(self)
+  def add_new_service(auth_data)
+    self.services << Service.find_by(provider: auth_data[:provider])
   end
 
 end
