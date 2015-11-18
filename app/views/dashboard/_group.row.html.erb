@@ -13,13 +13,36 @@
     <%= group.users.count %>
   </div>
   <div class="col s2">
-    <%= link_to group_follows_path(group), method: :put, class: "btn-floating btn waves-effect waves-light" do %>
-      <i class="medium material-icons">add_circle</i>
-    <% end %>
 
-    <%= link_to group_follows_path(group), method: :delete, class: "btn-floating btn waves-effect waves-light red" do %>
-      <i class="medium material-icons">remove_circle</i>
-    <% end %>
+
+    <%= render partial: "group.submit.button",
+               locals:  {
+                 method_to_use: "post",
+                 button_icon: "add_circle",
+                 button_classes: "btn-floating btn waves-effect waves-light",
+                 users: group.users
+               } %>
+
+    <%= render partial: "group.submit.button",
+               locals:  {
+                 method_to_use: "delete",
+                 button_icon: "remove_circle",
+                 button_classes: "btn-floating btn waves-effect waves-light red",
+                 users: group.users
+               } %>
+
+
+
+    <%#= link_to group_follows_path(group), method: :put, class: "btn-floating btn waves-effect waves-light" do %>
+      <!--<i class="medium material-icons">add_circle</i>-->
+    <%# end %>
+
+    <%#= link_to group_follows_path(group), method: :delete, class: "btn-floating btn waves-effect waves-light red" do %>
+      <!--<i class="medium material-icons">remove_circle</i>-->
+    <%# end %>
+
+
+
   </div>
 
 </div>

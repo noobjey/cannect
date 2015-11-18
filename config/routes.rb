@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     resource :follows, module: :groups, only: [:update, :destroy]
   end
 
-  post :follows, to: 'follow#create'
+  resources :follows, only: [:create]
   delete :follows, to: 'follows#destroy'
 end
