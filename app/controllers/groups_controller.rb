@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   def new
     @group = Group.new
-    @users = User.order(:username)
+    @users = User.order(:name)
   end
 
   def create
