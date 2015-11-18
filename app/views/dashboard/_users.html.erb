@@ -20,7 +20,7 @@
           <% end %>
         </td>
         <td>
-          <%= render partial: "group.submit.button",
+          <%= render partial: "follows.submit.button",
                      locals:  {
                        method_to_use: "post",
                        users: [user],
@@ -29,7 +29,7 @@
                        button_classes: "btn-floating btn waves-effect waves-light"
                      } %>
 
-          <%= render partial: "group.submit.button",
+          <%= render partial: "follows.submit.button",
                      locals:  {
                        method_to_use: "delete",
                        users: [user],
