@@ -12,39 +12,30 @@ RSpec.feature "Dashboard:", type: :feature do
   ) }
 
   before do
+    create_services()
     stub_omniauth_github()
   end
 
-  xcontext "a logged in user" do
+  context "a logged in user" do
     before do
-      VCR.use_cassette('dashboard') do
-        login_user()
-        expect(current_path).to eq(dashboard_path)
-      end
-    end
-
-    it "can logout" do
-      expect(page).to have_link(logout_button)
-
-      click_on logout_button
-
-      expect(current_path).to eq(root_path)
+      login_user()
+      expect(current_path).to eq(dashboard_path)
     end
 
     it "sees github profile picture in profile" do
       within "#profile" do
-        expect(first("img")[:src]).to eq(profile_info[:avatar_url])
+        expect(first("img")[:src]).to eq(omniauth_github_return.info.image)
       end
     end
 
     it "sees github username in profile" do
       within "#profile" do
-        expect(page).to have_content(user.username)
-        expect(page).to have_css("img[src*='Octocat.jpg']")
+        expect(page).to have_content(omniauth_github_return.info.name)
+        expect(page).to have_css("img[src*='#{logo_for_service()}']")
       end
     end
 
-    it "sees number of github followers" do
+    xit "sees number of github followers" do
       within "#profile" do
         expect(page).to have_content("Following: #{profile_info[:following]}")
       end

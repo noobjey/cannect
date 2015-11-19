@@ -46,13 +46,14 @@ module LoginHelper
 
   def profile_info
     {
-      avatar_url: 'https://avatars.githubusercontent.com/u/8325508?v=3',
+      avatar_url: "https://avatars.githubusercontent.com/u/8325508?v=3",
       following:  10
     }
   end
 
-  def login_user()
-    visit login_path
+  def login_user(service = "github")
+    visit root_path
+    click_on login_button(service)
   end
 
   def login_button(service)
@@ -70,5 +71,9 @@ module LoginHelper
   def create_services()
     Service.create(provider: omniauth_github_return.provider, logo: omniauth_github_return.info.image)
     Service.create(provider: omniauth_twitter_return.provider, logo: omniauth_twitter_return.info.image)
+  end
+
+  def logo_for_service(service = "github")
+    Service.find_by(provider: service).logo
   end
 end

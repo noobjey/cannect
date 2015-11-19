@@ -42,5 +42,20 @@ RSpec.feature "Logins:", type: :feature do
         end
       end
     end
+
+    context "and is logged in" do
+      before do
+        create_services()
+        stub_omniauth_twitter()
+        login_user()
+      end
+
+      it "cam logout" do
+        click_on logout_button()
+
+        expect(current_path).to eq(root_path)
+      end
+
+    end
   end
 end
