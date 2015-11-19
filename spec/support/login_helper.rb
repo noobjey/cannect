@@ -24,7 +24,6 @@ module LoginHelper
                              },
                              credentials: {
                                token:    "caeb23825711c31ee533570b9b7b122211482921"
-                               # token:    "d088f5075d8e264517cee9665f0f3659a92c3744"
                              }
                            })
   end
@@ -45,13 +44,6 @@ module LoginHelper
                            })
   end
 
-  def profile_info
-    {
-      avatar_url: "https://avatars.githubusercontent.com/u/8325508?v=3",
-      following:  10
-    }
-  end
-
   def login_user(service = "github")
     visit root_path
     click_on login_button(service)
@@ -67,10 +59,6 @@ module LoginHelper
 
   def logout_button()
     "Logout"
-  end
-
-  def create_github_user()
-    User.find_or_create_from_oauth(omniauth_github_return)
   end
 
   def create_services()

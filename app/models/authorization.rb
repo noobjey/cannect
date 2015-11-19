@@ -19,5 +19,9 @@ class Authorization < ActiveRecord::Base
     )
   end
 
+  def logo_for_service
+    Service.find_by(provider: self.provider).logo
+  end
+
 
 end

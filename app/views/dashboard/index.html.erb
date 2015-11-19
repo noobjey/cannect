@@ -7,7 +7,7 @@
       <%= render "dashboard/profile" %>
     </div>
 
-    <div class="col s8 white">
+    <div class="col s8 white" id="groups">
       <% if @groups %>
         <%= render partial: "dashboard/group.header" %>
         <%= render partial: "dashboard/group", collection: @groups %>
