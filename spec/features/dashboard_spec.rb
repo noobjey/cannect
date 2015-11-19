@@ -31,13 +31,44 @@ RSpec.feature "Dashboard:", type: :feature do
     it "sees github username in profile" do
       within "#profile" do
         expect(page).to have_content(omniauth_github_return.info.name)
-        expect(page).to have_css("img[src*='#{logo_for_service()}']")
       end
     end
 
     xit "sees number of github followers" do
       within "#profile" do
         expect(page).to have_content("Following: #{profile_info[:following]}")
+      end
+    end
+
+    it "sees services logos" do
+      within "#profile" do
+        expect(page).to have_css("img[src*='#{logo_for_service("github")}']")
+        expect(page).to have_css("img[src*='#{logo_for_service("twitter")}']")
+      end
+    end
+  end
+
+  context "a user who has only regestered one service" do
+    before do
+      stub_omniauth_twitter()
+      login_user("twitter")
+    end
+
+    it "sees their username by the registered servcie" do
+      within "#profile" do
+        within first(".collection-item.row") do
+          expect(page).to have_content(omniauth_twitter_return.info.nickname)
+          expect(page).to have_css("img[src*='#{logo_for_service("twitter")}']")
+        end
+      end
+    end
+
+    it "sees the add button by the unregistered servcie" do
+      within "#profile" do
+        within (".collection-item:nth-of-type(3)") do
+          expect(page).to have_link(add_service_button())
+          expect(page).to have_css("img[src*='#{logo_for_service("github")}']")
+        end
       end
     end
   end

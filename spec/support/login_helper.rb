@@ -76,4 +76,8 @@ module LoginHelper
   def logo_for_service(service = "github")
     Service.find_by(provider: service).logo
   end
+
+  def add_service_button()
+    "Add"
+  end
 end
