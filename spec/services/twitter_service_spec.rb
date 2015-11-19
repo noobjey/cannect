@@ -18,10 +18,10 @@ RSpec.feature "TwitterServices:", type: :feature do
     @service      = TwitterService.new(authorization)
   end
 
-  it "#following", focus: true do
+  it "#following" do
     VCR.use_cassette("twitter") do
       expect(service.following()).to eq(65)
     end
   end
-  
+
 end
