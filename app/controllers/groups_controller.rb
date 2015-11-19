@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+  before_action :require_user
+  before_action :require_group_owner, only: [:edit, :update, :destroy]
+
   def new
     @group = Group.new
     @users = User.order(:name)
@@ -56,6 +59,10 @@ class GroupsController < ApplicationController
 
   def add_users_to(group)
     group.user_ids = user_ids_to_add
+  end
+
+  def require_group_owner
+    redirect_to dashboard_path unless current_group.owner_id == current_user.id
   end
 
 end

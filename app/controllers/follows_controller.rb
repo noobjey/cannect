@@ -1,4 +1,6 @@
 class FollowsController < ApplicationController
+  before_action :require_user
+
   def create
     allowed_params.each do |user_id, data|
       data.each do |service, data|
