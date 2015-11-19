@@ -1,0 +1,333 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/account/verify_credentials.json?skip_status=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="eV3tGrKTeC4B0uie8H46uxx3v", oauth_nonce="1bb1ab9ea445f9999ba32c9cca21b60a",
+        oauth_signature="QCPizwzHByUVqcnYT%2F9KKN6NE3A%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1447943866", oauth_token="84891952-bksp0deuwkSrwTVyDuZw6UVfefWlJfRM8MmJ5JgdB",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '583'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 19 Nov 2015 14:37:47 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 19 Nov 2015 14:37:47 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A144794386707189883; Domain=.twitter.com; Path=/; Expires=Sat,
+        18-Nov-2017 14:37:47 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - acf5a0b470c7af8835daf21f4a292b66
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '15'
+      X-Rate-Limit-Remaining:
+      - '11'
+      X-Rate-Limit-Reset:
+      - '1447944327'
+      X-Response-Time:
+      - '24'
+      X-Transaction:
+      - f257696b2011283a
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      - BouncerExempt
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":84891952,"id_str":"84891952","name":"Jason Wright","screen_name":"noobjey","location":"Boulder,
+        CO","description":"Developer","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":53,"friends_count":66,"listed_count":0,"created_at":"Sat
+        Oct 24 17:00:47 +0000 2009","favourites_count":152,"utc_offset":-25200,"time_zone":"Mountain
+        Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":92,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"1A1B1F","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme9\/bg.gif","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme9\/bg.gif","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/488101956\/noobjEdit_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/488101956\/noobjEdit_normal.jpg","profile_link_color":"2FC2EF","profile_sidebar_border_color":"181A1E","profile_sidebar_fill_color":"252429","profile_text_color":"666666","profile_use_background_image":true,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false}'
+    http_version: 
+  recorded_at: Thu, 19 Nov 2015 14:37:47 GMT
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/users/lookup.json
+    body:
+      encoding: UTF-8
+      string: screen_name=MattRooney
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="eV3tGrKTeC4B0uie8H46uxx3v", oauth_nonce="9022fa7ad13293b6608fb44898d757b0",
+        oauth_signature="s5QKYIDQi8jmGNaiCqM9Ew7gYRI%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1447943866", oauth_token="84891952-bksp0deuwkSrwTVyDuZw6UVfefWlJfRM8MmJ5JgdB",
+        oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '1291'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 19 Nov 2015 14:37:47 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 19 Nov 2015 14:37:47 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A144794386707078451; Domain=.twitter.com; Path=/; Expires=Sat,
+        18-Nov-2017 14:37:47 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - a42bebbf7f3713d0acbe742e27a1b2ec
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '177'
+      X-Rate-Limit-Reset:
+      - '1447944516'
+      X-Response-Time:
+      - '48'
+      X-Transaction:
+      - 1255cc2c26e5eb68
+      X-Tsa-Request-Body-Time:
+      - '1'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"id":16202103,"id_str":"16202103","name":"Matt Rooney","screen_name":"mattrooney","location":"Nottinghamshire","description":"Develop
+        school leaders, teachers & schools. Champion for Specialist Education Provision.
+        #Scout. NRFC. Head of over 9000 Notts Scouts (@NottsScouts)","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":622,"friends_count":211,"listed_count":10,"created_at":"Tue
+        Sep 09 13:38:57 +0000 2008","favourites_count":85,"utc_offset":0,"time_zone":"London","geo_enabled":false,"verified":false,"statuses_count":1344,"lang":"en","status":{"created_at":"Wed
+        Nov 18 13:53:45 +0000 2015","id":666977594441637889,"id_str":"666977594441637889","text":"Parcels
+        arrived from @ted_baker. Love the giant #teddelivers boxes too! ''T for Tall''
+        range my new favourite thing! https:\/\/t.co\/kwpSB0Kvln","source":"\u003ca
+        href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter
+        for iPhone\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[{"text":"teddelivers","indices":[48,60]}],"symbols":[],"user_mentions":[{"screen_name":"ted_baker","name":"Ted
+        Baker","id":16527648,"id_str":"16527648","indices":[21,31]}],"urls":[],"media":[{"id":666977560870428672,"id_str":"666977560870428672","indices":[115,138],"media_url":"http:\/\/pbs.twimg.com\/media\/CUGUjszWoAAVGEO.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/CUGUjszWoAAVGEO.jpg","url":"https:\/\/t.co\/kwpSB0Kvln","display_url":"pic.twitter.com\/kwpSB0Kvln","expanded_url":"http:\/\/twitter.com\/mattrooney\/status\/666977594441637889\/photo\/1","type":"photo","sizes":{"small":{"w":340,"h":453,"resize":"fit"},"large":{"w":767,"h":1024,"resize":"fit"},"thumb":{"w":150,"h":150,"resize":"crop"},"medium":{"w":600,"h":801,"resize":"fit"}}}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/484248420236791809\/5zJjtsAx_normal.jpeg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/484248420236791809\/5zJjtsAx_normal.jpeg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/16202103\/1367476357","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":true,"default_profile_image":false,"following":true,"follow_request_sent":false,"notifications":false}]'
+    http_version: 
+  recorded_at: Thu, 19 Nov 2015 14:37:47 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/friends/ids.json?cursor=-1&user_id=84891952
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="eV3tGrKTeC4B0uie8H46uxx3v", oauth_nonce="573eb2c095c3d611c2856b045e4c6c49",
+        oauth_signature="fXonXsD9NX5DHOUa%2FCKi5SWuwLA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1447943867", oauth_token="84891952-bksp0deuwkSrwTVyDuZw6UVfefWlJfRM8MmJ5JgdB",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '402'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 19 Nov 2015 14:37:47 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 19 Nov 2015 14:37:47 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A144794386755109330; Domain=.twitter.com; Path=/; Expires=Sat,
+        18-Nov-2017 14:37:47 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 6c854cb39eea197e16b81423673add83
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '15'
+      X-Rate-Limit-Remaining:
+      - '12'
+      X-Rate-Limit-Reset:
+      - '1447944516'
+      X-Response-Time:
+      - '22'
+      X-Transaction:
+      - d175dc404201f14a
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ids":[16202103,1513997839,2870665948,5637652,127592513,16579475,214579886,109154946,9630822,16440374,173883200,96579772,108103170,115115285,17046072,69460633,14243091,343095401,360673223,16105217,12534,398658423,14434210,229709694,11855482,11112392,804050,16171758,804749,14849130,14096830,202794587,36356115,346704221,17825445,15970050,19407053,462511736,55569628,14183663,14859653,25354936,36403009,231092644,14655906,6186692,14979481,12381352,16005455,16968625,15734636,21046030,20732877,10348852,18194778,14173571,14253068,9505092,12982472,8957182,18962052,16891384,16665197,14553182,55573320,18206765],"next_cursor":0,"next_cursor_str":"0","previous_cursor":0,"previous_cursor_str":"0"}'
+    http_version: 
+  recorded_at: Thu, 19 Nov 2015 14:37:47 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/users/show.json?user_id=84891952
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="eV3tGrKTeC4B0uie8H46uxx3v", oauth_nonce="9c1400f14eb8d9b51c2747d0920b5bbc",
+        oauth_signature="DMORiTsE%2BMlZ4rpwglm3u9NCnLc%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1447943867", oauth_token="84891952-bksp0deuwkSrwTVyDuZw6UVfefWlJfRM8MmJ5JgdB",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '1083'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 19 Nov 2015 14:37:48 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 19 Nov 2015 14:37:48 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A144794386806717297; Domain=.twitter.com; Path=/; Expires=Sat,
+        18-Nov-2017 14:37:48 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 15727bf0d4d3d98e9eee2d638485f000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '179'
+      X-Rate-Limit-Reset:
+      - '1447944768'
+      X-Response-Time:
+      - '52'
+      X-Transaction:
+      - 289be7a5e97b39f2
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":84891952,"id_str":"84891952","name":"Jason Wright","screen_name":"noobjey","location":"Boulder,
+        CO","profile_location":{"id":"fd70c22040963ac7","url":"https:\/\/api.twitter.com\/1.1\/geo\/id\/fd70c22040963ac7.json","place_type":"unknown","name":"Boulder,
+        CO","full_name":"Boulder, CO","country_code":"","country":"","contained_within":[],"bounding_box":null,"attributes":{}},"description":"Developer","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":53,"friends_count":66,"listed_count":0,"created_at":"Sat
+        Oct 24 17:00:47 +0000 2009","favourites_count":152,"utc_offset":-25200,"time_zone":"Mountain
+        Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":92,"lang":"en","status":{"created_at":"Wed
+        Oct 28 23:42:31 +0000 2015","id":659515619767812096,"id_str":"659515619767812096","text":"@lukemayes
+        yes, yes it is. Well and to catch up with old friends in 140 chars or less.
+        only 46 left what to say? live CO now call if go skii","source":"\u003ca href=\"http:\/\/twitter.com\"
+        rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":659424149593567232,"in_reply_to_status_id_str":"659424149593567232","in_reply_to_user_id":14553182,"in_reply_to_user_id_str":"14553182","in_reply_to_screen_name":"lukemayes","geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[{"screen_name":"lukemayes","name":"Luke
+        Mayes","id":14553182,"id_str":"14553182","indices":[0,10]}],"urls":[]},"favorited":false,"retweeted":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"1A1B1F","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme9\/bg.gif","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme9\/bg.gif","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/488101956\/noobjEdit_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/488101956\/noobjEdit_normal.jpg","profile_link_color":"2FC2EF","profile_sidebar_border_color":"181A1E","profile_sidebar_fill_color":"252429","profile_text_color":"666666","profile_use_background_image":true,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"suspended":false,"needs_phone_verification":false}'
+    http_version: 
+  recorded_at: Thu, 19 Nov 2015 14:37:48 GMT
+recorded_with: VCR 2.9.3

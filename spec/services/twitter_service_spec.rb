@@ -11,11 +11,11 @@ RSpec.feature "TwitterServices:", type: :feature do
       uid:      omniauth_twitter_return.uid,
       token:    omniauth_twitter_return.credentials.token,
       secret:   omniauth_twitter_return.credentials.secret,
-      user_id: 1,
+      user_id:  1,
       username: omniauth_twitter_return.info.nickname
     )
 
-    @service      = TwitterService.new(authorization)
+    @service = TwitterService.new(authorization)
   end
 
   it "#following" do
@@ -24,4 +24,17 @@ RSpec.feature "TwitterServices:", type: :feature do
     end
   end
 
+  it "#follow" do
+    VCR.use_cassette("twitter follow") do
+      service.follow("MattRooney")
+      expect(service.following()).to eq(66)
+    end
+  end
+
+  it "#unfollow" do
+    VCR.use_cassette("twitter unfollow") do
+      service.unfollow("MattRooney")
+      expect(service.following()).to eq(65)
+    end
+  end
 end
