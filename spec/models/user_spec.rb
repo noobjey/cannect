@@ -15,12 +15,14 @@ RSpec.describe User, type: :model do
     end
 
     it "#create_from_oauth" do
-      expect(User.count).to eq(1)
-      expect(user.name).to eq(omniauth_github_return.info.name)
-      expect(user.image_url).to eq(omniauth_github_return.info.image)
+      user_from_oauth = User.create_from_oauth(omniauth_github_return)
 
-      expect(user.services.count).to eq(1)
-      expect(user.services.first.provider).to eq(omniauth_github_return.provider)
+      expect(User.count).to eq(2)
+      expect(user_from_oauth.name).to eq(omniauth_github_return.info.name)
+      expect(user_from_oauth.image_url).to eq(omniauth_github_return.info.image)
+
+      expect(user_from_oauth.services.count).to eq(1)
+      expect(user_from_oauth.services.first.provider).to eq(omniauth_github_return.provider)
     end
 
     it "#inactive_services" do
