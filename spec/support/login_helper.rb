@@ -56,6 +56,10 @@ module LoginHelper
     click_on login_button(service)
   end
 
+  def logged_in_user
+    User.find_by(name: omniauth_github_return.info.name)
+  end
+
   def login_button(service)
     "Login with #{service.capitalize}"
   end
@@ -79,5 +83,13 @@ module LoginHelper
 
   def add_service_button()
     "Add"
+  end
+
+  def create_group_button()
+    "Create Group"
+  end
+
+  def edit_group_button()
+    "Edit"
   end
 end

@@ -1,15 +1,8 @@
-require 'rails_helper'
-require 'support/login_helper'
+require "rails_helper"
+require "support/login_helper"
 
 RSpec.feature "Dashboard:", type: :feature do
   include LoginHelper
-
-  let(:user) { User.create(
-    provider: omniauth_github_return.provider,
-    uid:      omniauth_github_return.uid,
-    username: omniauth_github_return.extra.raw_info.login,
-    token:    omniauth_github_return.credentials.token
-  ) }
 
   before do
     create_services()

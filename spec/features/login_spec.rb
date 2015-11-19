@@ -1,5 +1,5 @@
-require 'rails_helper'
-require 'support/login_helper'
+require "rails_helper"
+require "support/login_helper"
 
 RSpec.feature "Logins:", type: :feature do
   include LoginHelper
@@ -50,7 +50,7 @@ RSpec.feature "Logins:", type: :feature do
         login_user()
       end
 
-      it "cam logout" do
+      it "can logout" do
         click_on logout_button()
 
         expect(current_path).to eq(root_path)
