@@ -13,8 +13,9 @@ class GroupsController < ApplicationController
 
     if group.save
       add_users_to(group)
-      redirect_to dashboard_path
     end
+
+    redirect_to dashboard_path
   end
 
   def edit
@@ -28,9 +29,9 @@ class GroupsController < ApplicationController
     if group
       group.update_attributes(allowed_params)
       add_users_to(group)
-
-      redirect_to dashboard_path
     end
+
+    redirect_to dashboard_path
   end
 
   def destroy
@@ -38,8 +39,9 @@ class GroupsController < ApplicationController
 
     if group
       group.delete
-      redirect_to dashboard_path
     end
+
+    redirect_to dashboard_path
   end
 
 
