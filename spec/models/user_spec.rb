@@ -1,34 +1,52 @@
-require 'rails_helper'
-require 'support/login_helper'
+require "rails_helper"
+require "support/login_helper"
 
 RSpec.describe User, type: :model do
   include LoginHelper
 
-  xdescribe '#find_or_create_from_oauth' do
+  describe "User:" do
 
-    context 'when uid does not exit' do
-      it 'create user' do
-        expect(User.count).to eq(0)
+    attr_reader :user, :service
 
-        user = User.find_or_create_from_oauth(omniauth_github_return)
-
-        expect(User.count).to eq(1)
-        expect(user.uid).to eq(omniauth_github_return.uid)
-        expect(user.provider).to eq(omniauth_github_return.provider)
-        expect(user.username).to eq(omniauth_github_return.extra.raw_info.login)
-        expect(user.token).to eq(omniauth_github_return.credentials.token)
-      end
+    before do
+      create_services()
+      @user = User.create_from_oauth(omniauth_github_return)
+      @service = Service.find_by(provider: "github")
     end
 
-    context 'when uid exists' do
-      it 'return user' do
-        User.create(uid: omniauth_github_return.uid)
+    it "#create_from_oauth" do
+      user_from_oauth = User.create_from_oauth(omniauth_github_return)
 
-        user = User.find_or_create_from_oauth(omniauth_github_return)
+      expect(User.count).to eq(2)
+      expect(user_from_oauth.name).to eq(omniauth_github_return.info.name)
+      expect(user_from_oauth.image_url).to eq(omniauth_github_return.info.image)
 
-        expect(User.count).to eq(1)
-        expect(user.uid).to eq(omniauth_github_return.uid)
-      end
+      expect(user_from_oauth.services.count).to eq(1)
+      expect(user_from_oauth.services.first.provider).to eq(omniauth_github_return.provider)
+    end
+
+    it "#inactive_services" do
+      user.services << service
+
+      expect(user.inactive_services().first.provider).to eq("twitter")
+    end
+
+    it "#username for service" do
+      user.authorizations << Authorization.create(
+        user_id: user.id,
+        uid:     omniauth_github_return.uid,
+        provider: omniauth_github_return.provider,
+        username: omniauth_github_return.info.nickname
+      )
+
+      expect(user.username_for_service(service)).to eq(omniauth_github_return.info.nickname)
+    end
+
+    it "#add_new_service" do
+      expect(user.services.count).to eq(1)
+      user.add_new_service(omniauth_twitter_return)
+
+      expect(user.services.count).to eq(2)
     end
   end
 end

@@ -23,5 +23,4 @@ class Authorization < ActiveRecord::Base
     Service.find_by(provider: self.provider).logo
   end
 
-
 end
