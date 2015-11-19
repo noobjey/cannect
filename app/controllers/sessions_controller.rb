@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
-
   def new
+    redirect_to dashboard_path if current_user
   end
 
   def create
-    auth_data = request.env['omniauth.auth']
+    auth_data = request.env["omniauth.auth"]
     auth      = Authorization.find_from_oauth(auth_data)
 
     if provider_already_authorized?(auth)

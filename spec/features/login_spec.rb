@@ -1,5 +1,5 @@
-require 'rails_helper'
-require 'support/login_helper'
+require "rails_helper"
+require "support/login_helper"
 
 RSpec.feature "Logins:", type: :feature do
   include LoginHelper
@@ -40,6 +40,45 @@ RSpec.feature "Logins:", type: :feature do
           expect(current_path).to eq dashboard_path
           expect(page).to have_link logout_button
         end
+      end
+    end
+
+    context "and is logged in" do
+      before do
+        create_services()
+        stub_omniauth_github()
+        login_user("twitter")
+      end
+
+      it "is sent to the dashboard" do
+        visit root_path
+
+        expect(current_path).to eq(dashboard_path)
+      end
+    end
+  end
+
+  describe "a user that visits the dashboard page" do
+
+    context "and is not logged in" do
+      it "is sent to the login page" do
+        visit dashboard_path
+
+        expect(current_path).to eq(root_path)
+      end
+    end
+
+    context "and is logged in" do
+      before do
+        create_services()
+        stub_omniauth_twitter()
+        login_user("twitter")
+      end
+
+      it "can logout" do
+        click_on logout_button()
+
+        expect(current_path).to eq(root_path)
       end
     end
   end
