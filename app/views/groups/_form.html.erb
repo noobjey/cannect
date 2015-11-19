@@ -1,34 +1,36 @@
-<div class="row">
-  <div class="col s8">
-    <%= form_for group do |f| %>
-      <div class="row">
+<div class="row section">
+  <div class="col s8 m6 offset-s2 offset-m3">
+    <div class="card-panel">
+      <%= form_for group do |f| %>
+        <div class="row">
 
-        <div class="input-field col s12">
-          <%= f.text_field :name %>
-          <%= f.label :name %>
+          <div class="input-field col s12">
+            <%= f.text_field :name %>
+            <%= f.label :name %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.text_field :description %>
+            <%= f.label :description %>
+          </div>
+
+          <%= f.label :users %>
+          <%= f.collection_check_boxes :user_ids, users, :id, :name do |b| %>
+            <p>
+              <%= b.check_box %>
+              <%= b.label %>
+            </p>
+          <% end %>
+
+          <%= f.hidden_field :owner_id, value: owner_id %>
+
+          <% if !group.new_record? %>
+            <%= hidden_field_tag "_method", "put" %>
+          <% end %>
+
+          <%= f.submit group.new_record? ? "Create Group" : "Update Group", class: "btn" %>
         </div>
-
-        <div class="input-field col s12">
-          <%= f.text_field :description %>
-          <%= f.label :description %>
-        </div>
-
-        <%= f.label :users %>
-        <%= f.collection_check_boxes :user_ids, users, :id, :name do |b| %>
-          <p>
-            <%= b.check_box %>
-            <%= b.label %>
-          </p>
-        <% end %>
-
-        <%= f.hidden_field :owner_id, value: owner_id %>
-
-        <% if !group.new_record? %>
-          <%= hidden_field_tag "_method", "put"  %>
-        <% end %>
-
-        <%= f.submit group.new_record? ? "Create Group" : "Update Group", class: "btn" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
