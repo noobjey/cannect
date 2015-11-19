@@ -35,7 +35,7 @@
                        users:          [user],
                        authorizations: user.authorizations,
                        button_icon:    "add_circle",
-                       button_classes: "btn-floating btn waves-effect waves-light #{disable}"
+                       button_classes: "btn-floating btn waves-effect waves-light #{disable} user-follow-btn"
                      } %>
 
           <%= render partial: "follows.submit.button",
@@ -44,7 +44,7 @@
                        users:          [user],
                        authorizations: user.authorizations,
                        button_icon:    "remove_circle",
-                       button_classes: "btn-floating btn waves-effect waves-light red #{disable}"
+                       button_classes: "btn-floating btn waves-effect waves-light red #{disable} user-follow-btn"
                      } %>
 
         </td>
