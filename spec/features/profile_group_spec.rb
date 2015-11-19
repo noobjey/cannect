@@ -1,7 +1,7 @@
 require "rails_helper"
 require "support/login_helper"
 
-RSpec.feature "Groups:", type: :feature do
+RSpec.feature "Profile Groups:", type: :feature do
   include LoginHelper
 
   let(:group1_name) { "group 1" }

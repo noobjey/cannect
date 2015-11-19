@@ -1,7 +1,7 @@
 require "rails_helper"
 require "support/login_helper"
 
-RSpec.feature "Dashboard:", type: :feature do
+RSpec.feature "Dashboard Profile:", type: :feature do
   include LoginHelper
 
   before do
