@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @users = User.order(:name)
+    @owner_id = current_user.id
   end
 
   def create
@@ -15,7 +16,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = current_group
-    @users = User.order(:username)
+    @users = User.order(:name)
   end
 
   def update
