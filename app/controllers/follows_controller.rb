@@ -8,7 +8,6 @@ class FollowsController < ApplicationController
       end
     end
 
-
     redirect_to dashboard_path
   end
 
