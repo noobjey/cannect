@@ -33,13 +33,9 @@ class FollowsController < ApplicationController
     Authorization.find_by_provider_and_uid(service, data[:user_to_follow_uid]).username
   end
 
+  # https://github.com/rails/rails/issues/9454
   def allowed_params
     params.require(:follows).permit!
   end
 
-  # allowed params that worked with user button
-  # https://github.com/rails/rails/issues/9454
-  # def allowed_params
-  #   params.require(:follows).permit(github: :user_to_follow_uid, twitter: :user_to_follow_uid )
-  # end
 end
