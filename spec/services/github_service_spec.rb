@@ -1,19 +1,26 @@
-require 'rails_helper'
-require 'support/login_helper'
+require "rails_helper"
+require "support/login_helper"
 
 RSpec.feature "GithubServices:", type: :feature do
   include LoginHelper
 
+  attr_reader :authorization, :service
+
   before do
-    @user    ||= create_github_user
-    @github_service = GithubService.new(@user)
+    @authorization = Authorization.create(
+      provider: omniauth_github_return.provider,
+      uid:      omniauth_github_return.uid,
+      token:    omniauth_github_return.credentials.token,
+      user_id:  1,
+      username: omniauth_github_return.info.nickname
+    )
+
+    @service = GithubService.new(authorization)
   end
 
-  xit "#profile" do
-    VCR.use_cassette("github user info") do
-      expect(@github_service.profile.id.to_s).to eq(omniauth_github_return.uid)
-      expect(@github_service.profile.avatar_url).to eq(profile_info[:avatar_url])
-      expect(@github_service.profile.following).to eq(profile_info[:following])
+  it "#following" do
+    VCR.use_cassette("github") do
+      expect(service.following()).to eq(11)
     end
   end
 end

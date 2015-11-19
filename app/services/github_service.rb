@@ -13,4 +13,7 @@ class GithubService
     client.unfollow(username)
   end
 
+  def following()
+    client.user.following
+  end
 end
