@@ -3,13 +3,14 @@
     <%= image_tag user.image_url, class: "responsive-img" %>
   </div>
   <div class="card-content black-text">
-    <h5>Welcome <%= user.name %></h5>
+    <div class="card-panel">
+      <h6 class="center-align">Hello <%= user.name %>!</h6>
+    </div>
 
     <div class="collection with-header">
-      <div class="collection-item collection-header valign-wrapper">
-
-        <div class="valign">
-          <h5 class="center-align">Accounts</h5>
+      <div class="collection-item collection-header">
+        <div class="center-align">
+          <h5>Accounts</h5>
         </div>
       </div>
 
