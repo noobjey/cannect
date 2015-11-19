@@ -23,4 +23,18 @@ RSpec.feature "GithubServices:", type: :feature do
       expect(service.following()).to eq(11)
     end
   end
+
+  it "#follow" do
+    VCR.use_cassette("github follow") do
+      service.follow("MattRooney")
+      expect(service.following()).to eq(12)
+    end
+  end
+
+  it "#unfollow"  do
+    VCR.use_cassette("github unvfollow") do
+      service.unfollow("MattRooney")
+      expect(service.following()).to eq(11)
+    end
+  end
 end
