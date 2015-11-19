@@ -14,6 +14,7 @@ gem 'omniauth-github'
 gem 'octokit', '~> 4.0'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'skylight'
 
 group :development, :test do
   gem 'byebug'
