@@ -47,6 +47,21 @@ RSpec.feature "Dashboard Profile:", type: :feature do
       login_user("twitter")
     end
 
+    it "can login again with that service" do
+      click_on "Logout"
+      expect(current_path).to eq(root_path)
+
+      login_user("twitter")
+      expect(current_path).to eq(dashboard_path)
+
+      within "#profile" do
+        within first(".collection-item.row") do
+          expect(page).not_to have_link(add_service_button())
+          expect(page).to have_css("img[src*='#{logo_for_service("twitter")}']")
+        end
+      end
+    end
+
     it "sees their username by the registered servcie" do
       within "#profile" do
         within first(".collection-item.row") do
@@ -61,6 +76,23 @@ RSpec.feature "Dashboard Profile:", type: :feature do
         within (".collection-item:nth-of-type(3)") do
           expect(page).to have_link(add_service_button())
           expect(page).to have_css("img[src*='#{logo_for_service("github")}']")
+        end
+      end
+    end
+
+
+    it "can add uregistered servcie" do
+      within "#profile" do
+        within (".collection-item:nth-of-type(3)") do
+          stub_omniauth_github()
+          expect(page).to have_link(add_service_button())
+          click_on add_service_button()
+        end
+      end
+
+      within "#profile" do
+        within (".collection-item:nth-of-type(3)") do
+          expect(page).to have_content(omniauth_github_return.info.nickname)
         end
       end
     end
