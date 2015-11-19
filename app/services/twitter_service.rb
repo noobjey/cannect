@@ -7,6 +7,7 @@ class TwitterService
       config.consumer_secret = Figaro.env.twitter_secret
       config.access_token        = authorization.token
       config.access_token_secret = authorization.secret
+
     end
 
   end
@@ -19,4 +20,7 @@ class TwitterService
     client.unfollow(username)
   end
 
+  def following()
+    client.user.friends_count
+  end
 end

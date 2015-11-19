@@ -46,7 +46,7 @@ RSpec.feature "Logins:", type: :feature do
     context "and is logged in" do
       before do
         create_services()
-        stub_omniauth_github()
+        stub_omniauth_twitter()
         login_user("twitter")
       end
 

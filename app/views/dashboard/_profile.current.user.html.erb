@@ -15,11 +15,11 @@
 
       <% active_services.each do |service| %>
         <div class="collection-item row">
-          <div class="valign col sm4">
+          <div class="valign col s4">
             <%= image_tag service.logo, class: "responsive-img noob-small" %>
           </div>
-          <div class="valign col sm8">
-            <h5 class="right-align"><%= user.username_for_service(service) %></h5>
+          <div class="valign col s8">
+            <h5 class="center-align"><%= user.username_for_service(service) %></h5>
           </div>
         </div>
       <% end %>

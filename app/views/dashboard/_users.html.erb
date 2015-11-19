@@ -1,10 +1,10 @@
 <ul class="collection with-header">
 
-  <table>
+  <table class="group-users">
     <thead>
     <tr>
-      <th data-field="username">Username</th>
-      <th data-field="provider">Provider</th>
+      <th data-field="username">Name</th>
+      <th data-field="provider">Authorized Providers</th>
       <th>Action</th>
     </tr>
     </thead>
@@ -12,15 +12,17 @@
     <tbody>
 
     <% users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
+      <tr class="group-user-row">
+        <td class="user-name">
+          <div><%=  image_tag user.image_url, class: "responsive-img circle noob-small" %></div>
+          <div><%= user.name %></div>
+        </td>
         <td>
           <% user.authorizations.each do |auth| %>
-            <%= auth.provider %>
+            <%= image_tag auth.logo_for_service, class: "responsive-img circle noob-small" %>
           <% end %>
         </td>
         <td>
-          <!-- PUT THIS IN PRESENTOR -->
           <% if current_user == user %>
             <% disable = "disabled" %>
           <% else %>
